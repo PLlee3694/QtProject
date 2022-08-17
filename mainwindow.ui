@@ -38,61 +38,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1142</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="File_Menu">
-    <property name="title">
-     <string>文件</string>
-    </property>
-    <property name="separatorsCollapsible">
-     <bool>false</bool>
-    </property>
-    <property name="toolTipsVisible">
-     <bool>false</bool>
-    </property>
-    <addaction name="actionnew"/>
-    <addaction name="actionopen"/>
-    <addaction name="actionsave"/>
-    <addaction name="actionclose"/>
-    <addaction name="actionreturntotheindex0"/>
-   </widget>
-   <widget class="QMenu" name="Edit_Menu">
-    <property name="title">
-     <string>编辑</string>
-    </property>
-    <addaction name="actionadd"/>
-    <addaction name="actionchange"/>
-    <addaction name="actionfind"/>
-   </widget>
-   <widget class="QMenu" name="menu">
-    <property name="title">
-     <string>账户</string>
-    </property>
-    <addaction name="actionlogout"/>
-    <addaction name="actionabout"/>
-   </widget>
-   <widget class="QMenu" name="menu_2">
-    <property name="title">
-     <string>筛选</string>
-    </property>
-    <addaction name="actionscreeninposition"/>
-    <addaction name="actionscreeningender"/>
-    <addaction name="actionscreeningrade"/>
-    <addaction name="actionscreeninmarry"/>
-    <addaction name="actionsortinbirth"/>
-   </widget>
-   <addaction name="File_Menu"/>
-   <addaction name="Edit_Menu"/>
-   <addaction name="menu"/>
-   <addaction name="menu_2"/>
-  </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBar">
    <property name="windowTitle">
@@ -120,6 +65,53 @@
    <addaction name="separator"/>
    <addaction name="actionreturntotheindex0"/>
    <addaction name="separator"/>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1142</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="File_Menu">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <property name="separatorsCollapsible">
+     <bool>false</bool>
+    </property>
+    <property name="toolTipsVisible">
+     <bool>false</bool>
+    </property>
+    <addaction name="actionnew"/>
+    <addaction name="actionopen"/>
+    <addaction name="actionsave"/>
+    <addaction name="actionclose"/>
+    <addaction name="actionreturntotheindex0"/>
+   </widget>
+   <widget class="QMenu" name="Edit_Menu">
+    <property name="title">
+     <string>编辑</string>
+    </property>
+    <addaction name="actionadd"/>
+    <addaction name="actionchange"/>
+    <addaction name="actionfind"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>筛选</string>
+    </property>
+    <addaction name="actionscreeninposition"/>
+    <addaction name="actionscreeningender"/>
+    <addaction name="actionscreeningrade"/>
+    <addaction name="actionscreeninmarry"/>
+    <addaction name="actionsortinbirth"/>
+   </widget>
+   <addaction name="File_Menu"/>
+   <addaction name="Edit_Menu"/>
+   <addaction name="menu_2"/>
   </widget>
   <action name="actionadd">
    <property name="text">

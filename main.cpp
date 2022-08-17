@@ -13,10 +13,11 @@ int main(int argc, char *argv[])
     palette.setColor(QPalette::Window,QColor(246,246,246));
     a.setPalette(palette);
     MainWindow w;
-    LoginDialog * Logindialog=new LoginDialog;
-    Logindialog->show();
-    QObject::connect(Logindialog,&LoginDialog::Showmainwindow,&w,&MainWindow::show);
-    QObject::connect(&w,&MainWindow::return_to_the_login,Logindialog,&LoginDialog::show);
-    QObject::connect(&w,&MainWindow::return_to_the_login,&w,&MainWindow::Closethewidget);
+//    LoginDialog * Logindialog=new LoginDialog;
+//    Logindialog->show();
+//    QObject::connect(Logindialog,&LoginDialog::Showmainwindow,&w,&MainWindow::show);
+//    QObject::connect(&w,&MainWindow::return_to_the_login,Logindialog,&LoginDialog::show);
+//    QObject::connect(&w,&MainWindow::return_to_the_login,&w,&MainWindow::Closethewidget);
+    w.show();
     return a.exec();
 }

@@ -28,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
     //设置主窗口属性
     ui->setupUi(this);
     setFixedSize(955,700);
-    setWindowTitle("教师信息管理系统");
+    setWindowTitle("图书室信息管理系统");
     setWindowIcon(QIcon(":/image/mainwindow.png"));
     ui->stackedWidget->setCurrentIndex(0);
 
@@ -37,12 +37,12 @@ MainWindow::MainWindow(QWidget *parent)
     QStatusBar * statusbur=statusBar();
     setStatusBar(statusbur);
     statusbur->setSizeGripEnabled(false);
-    statusbur->addWidget(new QLabel("当前教师总数: ",this));
+    statusbur->addWidget(new QLabel("当前书籍总数: ",this));
     statusbur->addWidget(Labeltnum);
 
     //创建汇总表格
     ui->tableWidget->setColumnCount(9);
-    ui->tableWidget->setHorizontalHeaderLabels(QStringList()<<"编号"<<"姓名"<<"性别"<<"出生年月"<<"职称"<<"最后学历"<<"工资（元）"<<"婚否"<<"授课信息");
+    ui->tableWidget->setHorizontalHeaderLabels(QStringList()<<"编号"<<"姓名"<<"性别"<<"出生年月"<<"职称"<<"最后学历"<<"工资（元）"/*<<"婚否"<<"授课信息"*/);
     ui->tableWidget->setRowCount(0);
     ui->tableWidget->hide();
     ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -64,7 +64,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->actionopen->setIcon(QIcon(":/image/open.png"));
     connect(ui->actionopen,&QAction::triggered,
             [=](){
-        QString file1=QFileDialog::getOpenFileName(this,"打开教师信息文件",QDir::currentPath(),"文本文件(*.txt)");
+        QString file1=QFileDialog::getOpenFileName(this,"打开图书室信息文件",QDir::currentPath(),"文本文件(*.txt)");
         if(file1.isEmpty())
             return;
         //创建成功，打开文件
@@ -77,7 +77,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->actionsave->setIcon(QIcon(":/image/save.png"));
     connect(ui->actionsave,&QAction::triggered,
             [=](){
-        QString file2=QFileDialog::getSaveFileName(this,"保存教师信息文件",QDir::currentPath(),"文本文件(*.txt)");
+        QString file2=QFileDialog::getSaveFileName(this,"保存图书室信息文件",QDir::currentPath(),"文本文件(*.txt)");
         if(file2.isEmpty())
             return;
         MainWindow::teachers.Saveteachertofile(file2);
@@ -101,8 +101,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->actionchange->setIcon(QIcon(":/image/change.png"));
     connect(ui->actionchange,&QAction::triggered,
             [&](){
-        DeleteDialog *change1=new DeleteDialog(this,"输入教师编号以修改教师信息");
-        change1->setWindowTitle("修改教师信息");
+        DeleteDialog *change1=new DeleteDialog(this,"输入书籍编号以修改书籍信息");
+        change1->setWindowTitle("修改书籍信息");
         int ret1=change1->exec();
         if(ret1==QDialog::Accepted)
         {
@@ -146,15 +146,15 @@ MainWindow::MainWindow(QWidget *parent)
         }
     });
 
-    //实现登出当前账户按钮功能
-    ui->actionlogout->setIcon(QIcon(":/image/logout.png"));
-    connect(ui->actionlogout,&QAction::triggered,
-            [=](){this->close();emit return_to_the_login();});
+//    //实现登出当前账户按钮功能
+//    ui->actionlogout->setIcon(QIcon(":/image/logout.png"));
+//    connect(ui->actionlogout,&QAction::triggered,
+//            [=](){this->close();emit return_to_the_login();});
 
-    //实现展示当前账户信息按钮功能
-    ui->actionabout->setIcon(QIcon(":/image/mine.png"));
-    connect(ui->actionabout,&QAction::triggered,
-            [=](){AboutDialog *about=new AboutDialog(this);about->exec();});
+//    //实现展示当前账户信息按钮功能
+//    ui->actionabout->setIcon(QIcon(":/image/mine.png"));
+//    connect(ui->actionabout,&QAction::triggered,
+//            [=](){AboutDialog *about=new AboutDialog(this);about->exec();});
 
     //实现按出生日期筛选按钮功能
     ui->actionsortinbirth->setIcon(QIcon(":/image/birth.png"));
