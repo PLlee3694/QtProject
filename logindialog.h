@@ -14,10 +14,12 @@ class LoginDialog : public QDialog
 public:
     explicit LoginDialog(QWidget *parent = nullptr);
     void Login_Success();
+    void user_login_success();
     ~LoginDialog();
 
 signals:
     void Showmainwindow();
+    void Showmainwindow2();
 
 private:
     Ui::LoginDialog *ui;

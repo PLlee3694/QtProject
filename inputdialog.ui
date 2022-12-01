@@ -33,7 +33,7 @@
       <item>
        <widget class="QLabel" name="grade_label">
         <property name="text">
-         <string>学历：</string>
+         <string>类型：</string>
         </property>
        </widget>
       </item>
@@ -75,7 +75,7 @@
       <item>
        <widget class="QLabel" name="name_label">
         <property name="text">
-         <string>姓名：</string>
+         <string>书名：</string>
         </property>
        </widget>
       </item>
@@ -124,7 +124,7 @@
       <item>
        <widget class="QLabel" name="birth_label">
         <property name="text">
-         <string>出生年月：</string>
+         <string>出版日期：</string>
         </property>
        </widget>
       </item>
@@ -164,9 +164,9 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="Addcourse_pushButton">
+       <widget class="QPushButton" name="Addregis_pushButton">
         <property name="text">
-         <string>添加授课信息</string>
+         <string>添加登记信息</string>
         </property>
        </widget>
       </item>
@@ -218,12 +218,12 @@
       <item>
        <widget class="QLabel" name="position_label">
         <property name="text">
-         <string>职称：</string>
+         <string>出版社：</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QComboBox" name="position_comboBox"/>
+       <widget class="QLineEdit" name="press_lineEdit"/>
       </item>
       <item>
        <spacer name="horizontalSpacer_20">
@@ -361,7 +361,7 @@
       <item>
        <widget class="QLabel" name="salary_label">
         <property name="text">
-         <string>工资：</string>
+         <string>库存：</string>
         </property>
        </widget>
       </item>
@@ -410,23 +410,12 @@
       <item>
        <widget class="QLabel" name="gender_label">
         <property name="text">
-         <string>性别：</string>
+         <string>作者：</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="men_radioButton">
-        <property name="text">
-         <string>男</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="women_radioButton">
-        <property name="text">
-         <string>女</string>
-        </property>
-       </widget>
+       <widget class="QLineEdit" name="lineEdit"/>
       </item>
       <item>
        <spacer name="horizontalSpacer_6">
@@ -463,23 +452,12 @@
       <item>
        <widget class="QLabel" name="marry_label">
         <property name="text">
-         <string>婚否：</string>
+         <string>页数：</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="marry_radioButton">
-        <property name="text">
-         <string>已婚</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="nonmarry_radioButton">
-        <property name="text">
-         <string>未婚</string>
-        </property>
-       </widget>
+       <widget class="QLineEdit" name="page_lineEdit"/>
       </item>
       <item>
        <spacer name="horizontalSpacer_14">

@@ -1,5 +1,6 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef USERMAINWINDOW_H
+#define USERMAINWINDOW_H
+
 #include"logindialog.h"
 #include <QMainWindow>
 #include<QFileDialog>
@@ -8,27 +9,33 @@
 #include<QLabel>
 using namespace std;
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui { class UserMainWindow; }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
+class UserMainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    UserMainWindow(QWidget *parent = nullptr);
     void Update();
     void Closethewidget();
     void Showregis();
+//    void Screeninbirth(QDate,bool);
+//    void Screeninposition(int);
+//    void Screeningrade(int);
+//    void Screeningender(int);
+//    void Screeninmarry(int);
     static BookInformationTable books;
     static QString user_num;
     QLabel * Labeltnum;
-    ~MainWindow();
+    ~UserMainWindow();
 
 signals:
     void return_to_the_login();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::UserMainWindow *ui;
 };
-#endif // MAINWINDOW_H
+
+#endif // USERMAINWINDOW_H

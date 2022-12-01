@@ -2,8 +2,8 @@
 #define INPUTDIALOG_H
 
 #include <QDialog>
-#include"teacherinformation.h"
-#include"coursedialog.h"
+#include"bookinformation.h"
+#include"regisinfodialog.h"
 namespace Ui {
 class InputDialog;
 }
@@ -15,10 +15,9 @@ class InputDialog : public QDialog
 public:
     explicit InputDialog(QWidget *parent = nullptr);
     void input();
-    bool gender;
-    bool marry;
-    CourseDialog * addcourse;
-    TeacherInformation *tempteacher;
+    bool borrow;
+    RegisinfoDialog * addRegisinfo;
+    BookInformation *tempbook;
     ~InputDialog();
 signals:
     void Successfulinput();

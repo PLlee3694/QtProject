@@ -1,6 +1,6 @@
 #ifndef CHANGEDIALOG_H
 #define CHANGEDIALOG_H
-#include"coursesdialog.h"
+#include"regisinfosdialog.h"
 #include <QDialog>
 
 namespace Ui {
@@ -14,8 +14,7 @@ class ChangeDialog : public QDialog
 public:
     explicit ChangeDialog(QWidget *parent = nullptr,QString num="");
     void Change();
-    bool gender;
-    bool marry;
+    bool borrow;
     ~ChangeDialog();
 
 private:

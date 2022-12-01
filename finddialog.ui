@@ -61,7 +61,7 @@
         <item>
          <widget class="QLabel" name="title_label">
           <property name="text">
-           <string>输入教师编号以查询教师信息</string>
+           <string>输入书籍编号以查询书籍信息</string>
           </property>
          </widget>
         </item>

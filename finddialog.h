@@ -13,6 +13,7 @@ class FindDialog : public QDialog
 
 public:
     explicit FindDialog(QWidget *parent = nullptr);
+    QString Name();
     QString Num();
     ~FindDialog();
 

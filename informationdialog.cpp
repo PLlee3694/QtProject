@@ -7,61 +7,44 @@ InformationDialog::InformationDialog(QWidget *parent,QString num) :
 {
     ui->setupUi(this);
     resize(300,360);
-    QString title=MainWindow::teachers.num_for_teachers[num].name;
-    title.append(MainWindow::teachers.num_for_teachers[num].position);
+    QString title=MainWindow::books.num_for_books[num].name;
     title.append("的信息");
     setWindowTitle(title);
-    setWindowIcon(QIcon(":/image/teacher-course.png"));
+    setWindowIcon(QIcon(":/image/teacher-Regisinfo.png"));
     ui->stackedWidget->setCurrentIndex(0);
     connect(ui->baseinfo_pushButton,&QPushButton::clicked,[=]{ui->stackedWidget->setCurrentIndex(0);});
-    connect(ui->courseinfo_pushButton,&QPushButton::clicked,[=]{ui->stackedWidget->setCurrentIndex(1);});
+    connect(ui->regisinfo_pushButton,&QPushButton::clicked,[=]{ui->stackedWidget->setCurrentIndex(1);});
     ui->tableWidget->setRowCount(8);
-    ui->tableWidget->setVerticalHeaderLabels(QStringList()<<"编号"<<"姓名"<<"性别"<<"出生日期"<<"职称"<<"学历"<<"工资"<<"婚否");
+    ui->tableWidget->setVerticalHeaderLabels(QStringList()<<"编号"<<"书名"<<"作者"<<"出版日期"<<"出版社"<<"类型"<<"库存"<<"页数");
     ui->tableWidget->setColumnCount(1);
     ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    QString gender;
-    if(MainWindow::teachers.num_for_teachers[num].gender)
-        gender="男";
-    else
-        gender="女";
-    QString marry;
-    if(MainWindow::teachers.num_for_teachers[num].marry)
-        marry="已婚";
-    else
-        marry="未婚";
     int row=0;
     ui->tableWidget->setItem(row++,0,new QTableWidgetItem(num));
-    ui->tableWidget->setItem(row++,0,new QTableWidgetItem(MainWindow::teachers.num_for_teachers[num].name));
-    ui->tableWidget->setItem(row++,0,new QTableWidgetItem(gender));
-    ui->tableWidget->setItem(row++,0,new QTableWidgetItem(QString(MainWindow::teachers.num_for_teachers[num].birth.toString("yyyy/MM/dd"))));
-    ui->tableWidget->setItem(row++,0,new QTableWidgetItem(MainWindow::teachers.num_for_teachers[num].position));
-    ui->tableWidget->setItem(row++,0,new QTableWidgetItem(MainWindow::teachers.num_for_teachers[num].grade));
-    ui->tableWidget->setItem(row++,0,new QTableWidgetItem(MainWindow::teachers.num_for_teachers[num].salary));
-    ui->tableWidget->setItem(row++,0,new QTableWidgetItem(marry));
-    ui->tableWidget_2->setRowCount(7);
-    ui->tableWidget_2->setVerticalHeaderLabels(QStringList()<<"课程编号"<<"课程名称"<<"课时"<<"授课教室"<<"授课班级"<<"学分"<<"学期");
-    int cnum=MainWindow::teachers.num_for_teachers[num].cornum;
+    ui->tableWidget->setItem(row++,0,new QTableWidgetItem(MainWindow::books.num_for_books[num].name));
+    ui->tableWidget->setItem(row++,0,new QTableWidgetItem(MainWindow::books.num_for_books[num].author));
+    ui->tableWidget->setItem(row++,0,new QTableWidgetItem(QString(MainWindow::books.num_for_books[num].comeOutDate.toString("yyyy/MM/dd"))));
+    ui->tableWidget->setItem(row++,0,new QTableWidgetItem(MainWindow::books.num_for_books[num].press));
+    ui->tableWidget->setItem(row++,0,new QTableWidgetItem(MainWindow::books.num_for_books[num].type));
+    ui->tableWidget->setItem(row++,0,new QTableWidgetItem(QString::number(MainWindow::books.num_for_books[num].storage)));
+    ui->tableWidget->setItem(row++,0,new QTableWidgetItem(QString::number(MainWindow::books.num_for_books[num].page)));
+    ui->tableWidget_2->setRowCount(5);
+    ui->tableWidget_2->setVerticalHeaderLabels(QStringList()<<"登记号"<<"书册名称"<<"是否借出"<<"借出时间"<<"借书证号");
+    int cnum=MainWindow::books.num_for_books[num].storage;
     ui->tableWidget_2->setColumnCount(cnum);
     ui->tableWidget_2->setEditTriggers(QAbstractItemView::NoEditTriggers);
     for(int i=0;i<cnum;i++)
     {
         int row=0;
         ui->tableWidget_2->setItem(row++,i,
-                                 new QTableWidgetItem(QString::number(MainWindow::teachers.num_for_teachers[num].courses[i].course_num)));
+                                 new QTableWidgetItem(QString::number(MainWindow::books.num_for_books[num].Regisinfos[i].Regisinfo_num)));
         ui->tableWidget_2->setItem(row++,i,
-                                 new QTableWidgetItem(MainWindow::teachers.num_for_teachers[num].courses[i].course_name));
+                                 new QTableWidgetItem(MainWindow::books.num_for_books[num].Regisinfos[i].Regisinfo_name));
         ui->tableWidget_2->setItem(row++,i,
-                                 new QTableWidgetItem(QString("%1").arg(MainWindow::teachers.num_for_teachers[num].courses[i].course_hour)));
-        QString temproom=MainWindow::teachers.num_for_teachers[num].courses[i].course_jiao;
-        temproom.append(MainWindow::teachers.num_for_teachers[num].courses[i].course_shi);
+                                 new QTableWidgetItem(MainWindow::books.num_for_books[num].Regisinfos[i].borrow_or_not));
         ui->tableWidget_2->setItem(row++,i,
-                                 new QTableWidgetItem(temproom));
+                                 new QTableWidgetItem(MainWindow::books.num_for_books[num].Regisinfos[i].borrow_time.toString("yyyy/MM/dd")));
         ui->tableWidget_2->setItem(row++,i,
-                                 new QTableWidgetItem(MainWindow::teachers.num_for_teachers[num].courses[i].course_class));
-        ui->tableWidget_2->setItem(row++,i,
-                                 new QTableWidgetItem(QString("%1").arg(MainWindow::teachers.num_for_teachers[num].courses[i].course_credit)));
-        ui->tableWidget_2->setItem(row++,i,
-                                 new QTableWidgetItem(MainWindow::teachers.num_for_teachers[num].courses[i].course_semester));
+                                 new QTableWidgetItem(MainWindow::books.num_for_books[num].Regisinfos[i].card_number));
     }
 }
 
